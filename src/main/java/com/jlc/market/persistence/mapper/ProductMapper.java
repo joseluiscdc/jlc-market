@@ -5,7 +5,10 @@ import java.util.List;
 import com.jlc.market.domain.Product;
 import com.jlc.market.persistence.entity.Producto;
 
-import org.mapstruct.*;
+import org.mapstruct.InheritInverseConfiguration;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring", uses = { CategoryMapper.class })
 public interface ProductMapper {
