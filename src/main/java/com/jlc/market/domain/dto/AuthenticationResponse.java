@@ -1,17 +1,17 @@
 package com.jlc.market.domain.dto;
 
 public class AuthenticationResponse {
-    private String jwt;
+    private String token;
 
-    public AuthenticationResponse(String jwt) {
-        this.jwt = jwt;
+    public AuthenticationResponse(String token) {
+        this.token = token;
     }
 
-    public String getJwt() {
-        return jwt;
+    public String getToken() {
+        return token;
     }
 
-    public void setJwt(String jwt) {
-        this.jwt = jwt;
+    public void setToken(String token) {
+        this.token = token;
     }
 }

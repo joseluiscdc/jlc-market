@@ -20,6 +20,7 @@ import java.io.IOException;
 
 @Component
 public class JwtFilterRequest extends OncePerRequestFilter {
+    private static final int SPACE_BEARER = 7;
 
     @Autowired
     private JWTUtil jwtUtil;
@@ -33,7 +34,7 @@ public class JwtFilterRequest extends OncePerRequestFilter {
         String authorizationHeader = request.getHeader("Authorization");
 
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer")) {
-            String jwt = authorizationHeader.substring(7);
+            String jwt = authorizationHeader.substring(SPACE_BEARER);
             String username = jwtUtil.extractUsername(jwt);
 
             if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
