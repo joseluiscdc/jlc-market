@@ -3,6 +3,7 @@ package com.jlc.market.domain;
 public class Product {
     private int productId;
     private String name;
+    private int categoryId;
     private double price;
     private int stock;
     private boolean active;
@@ -22,6 +23,14 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public double getPrice() {

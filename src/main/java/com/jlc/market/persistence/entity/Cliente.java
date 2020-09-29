@@ -1,12 +1,12 @@
 package com.jlc.market.persistence.entity;
 
+import javax.persistence.*;
 import java.util.List;
 
-import javax.persistence.*;
-
 @Entity
-@Table(name = "clientes")
+@Table(name="clientes")
 public class Cliente {
+
     @Id
     private String id;
     private String nombre;
@@ -14,11 +14,10 @@ public class Cliente {
     private Long celular;
     private String direccion;
 
-    @Column(name = "correo_electronico")
+    @Column(name="correo_electronico")
     private String correoElectronico;
 
     @OneToMany(mappedBy = "cliente")
-
     private List<Compra> compras;
 
     public String getId() {
@@ -67,5 +66,13 @@ public class Cliente {
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
+    }
+
+    public List<Compra> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(List<Compra> compras) {
+        this.compras = compras;
     }
 }

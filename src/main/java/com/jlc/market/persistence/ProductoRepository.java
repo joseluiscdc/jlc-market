@@ -14,10 +14,13 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class ProductoRepository implements ProductRepository {
-    @Autowired
     private ProductoCrudRepository productoCrudRepository;
-    @Autowired
     private ProductMapper mapper;
+
+    public ProductoRepository(ProductoCrudRepository productoCrudRepository, ProductMapper mapper) {
+        this.productoCrudRepository = productoCrudRepository;
+        this.mapper = mapper;
+    }
 
     @Override
     public List<Product> getAll() {

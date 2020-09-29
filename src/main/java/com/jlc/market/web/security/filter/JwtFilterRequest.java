@@ -21,12 +21,13 @@ import java.io.IOException;
 @Component
 public class JwtFilterRequest extends OncePerRequestFilter {
     private static final int SPACE_BEARER = 7;
-
-    @Autowired
     private JWTUtil jwtUtil;
-
-    @Autowired
     private MarketUserDetailsService marketUserDetailsService;
+
+    public JwtFilterRequest(JWTUtil jwtUtil, MarketUserDetailsService marketUserDetailsService) {
+        this.jwtUtil = jwtUtil;
+        this.marketUserDetailsService = marketUserDetailsService;
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

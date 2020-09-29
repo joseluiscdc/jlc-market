@@ -14,11 +14,13 @@ import com.jlc.market.persistence.mapper.PurchaseMapper;
 
 @Repository
 public class CompraRepository implements PurchaseRepository {
-    @Autowired
     private CompraCrudRepository compraCrudRepository;
-
-    @Autowired
     private PurchaseMapper mapper;
+
+    public CompraRepository(CompraCrudRepository compraCrudRepository, PurchaseMapper mapper) {
+        this.compraCrudRepository = compraCrudRepository;
+        this.mapper = mapper;
+    }
 
     @Override
     public List<Purchase> getAll() {

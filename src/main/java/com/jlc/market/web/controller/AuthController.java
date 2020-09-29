@@ -20,15 +20,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-
-    @Autowired
     private AuthenticationManager authenticationManager;
-
-    @Autowired
     private MarketUserDetailsService marketUserDetailsService;
-
-    @Autowired
     private JWTUtil jwtUtil;
+
+    public AuthController(AuthenticationManager authenticationManager, MarketUserDetailsService marketUserDetailsService, JWTUtil jwtUtil) {
+        this.authenticationManager = authenticationManager;
+        this.marketUserDetailsService = marketUserDetailsService;
+        this.jwtUtil = jwtUtil;
+    }
 
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> createToken(@RequestBody AuthenticationRequest request) {

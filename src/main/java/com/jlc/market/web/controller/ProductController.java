@@ -24,10 +24,13 @@ import com.jlc.market.domain.service.ProductService;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
-    @Autowired
     private ProductService productService;
 
-    @GetMapping("/all")
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @GetMapping()
     @ApiOperation("Get all supermarket products")
     @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<List<Product>> getAll() {
@@ -50,12 +53,12 @@ public class ProductController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping("/save")
+    @PostMapping()
     public ResponseEntity<Product> save(@RequestBody Product product) {
         return new ResponseEntity<>(productService.save(product), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable("id") int productId) {
         if (productService.delete(productId)) {
             return new ResponseEntity<String>(HttpStatus.OK);
