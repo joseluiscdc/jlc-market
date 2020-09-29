@@ -1,6 +1,5 @@
 package com.jlc.market.web.security.filter;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,17 +13,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jlc.market.domain.service.MarketUserDetailsService;
-import com.jlc.market.web.security.JWTUtil;
+import com.jlc.market.web.security.JwtUtil;
 
 import java.io.IOException;
 
 @Component
 public class JwtFilterRequest extends OncePerRequestFilter {
     private static final int SPACE_BEARER = 7;
-    private JWTUtil jwtUtil;
+    private JwtUtil jwtUtil;
     private MarketUserDetailsService marketUserDetailsService;
 
-    public JwtFilterRequest(JWTUtil jwtUtil, MarketUserDetailsService marketUserDetailsService) {
+    public JwtFilterRequest(JwtUtil jwtUtil, MarketUserDetailsService marketUserDetailsService) {
         this.jwtUtil = jwtUtil;
         this.marketUserDetailsService = marketUserDetailsService;
     }

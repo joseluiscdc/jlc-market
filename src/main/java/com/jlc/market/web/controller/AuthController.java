@@ -3,13 +3,12 @@ package com.jlc.market.web.controller;
 import com.jlc.market.domain.dto.AuthenticationRequest;
 import com.jlc.market.domain.dto.AuthenticationResponse;
 import com.jlc.market.domain.service.MarketUserDetailsService;
-import com.jlc.market.web.security.JWTUtil;
+import com.jlc.market.web.security.JwtUtil;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,9 +26,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     private AuthenticationManager authenticationManager;
     private MarketUserDetailsService marketUserDetailsService;
-    private JWTUtil jwtUtil;
+    private JwtUtil jwtUtil;
 
-    public AuthController(AuthenticationManager authenticationManager, MarketUserDetailsService marketUserDetailsService, JWTUtil jwtUtil) {
+    public AuthController(AuthenticationManager authenticationManager, MarketUserDetailsService marketUserDetailsService, JwtUtil jwtUtil) {
         this.authenticationManager = authenticationManager;
         this.marketUserDetailsService = marketUserDetailsService;
         this.jwtUtil = jwtUtil;

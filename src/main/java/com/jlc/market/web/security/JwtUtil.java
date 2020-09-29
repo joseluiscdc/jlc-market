@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 @Component
-public class JWTUtil {
+public class JwtUtil {
     private static final String KEY = "jo5elu1s";
 
     public String generateToken(UserDetails userDetails) {
