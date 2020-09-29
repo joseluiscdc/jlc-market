@@ -5,6 +5,10 @@ import com.jlc.market.domain.dto.AuthenticationResponse;
 import com.jlc.market.domain.service.MarketUserDetailsService;
 import com.jlc.market.web.security.JWTUtil;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
+@Api(tags = "Authenticate")
 public class AuthController {
     private AuthenticationManager authenticationManager;
     private MarketUserDetailsService marketUserDetailsService;
@@ -31,6 +36,11 @@ public class AuthController {
     }
 
     @PostMapping("/authenticate")
+    @ApiOperation(value = "Authenticate with API", notes = "Resource to get token authenticated")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Token created ok!"),
+            @ApiResponse(code = 400, message = "Request not valid!")
+    })
     public ResponseEntity<AuthenticationResponse> createToken(@RequestBody AuthenticationRequest request) {
         try {
             authenticationManager.authenticate(

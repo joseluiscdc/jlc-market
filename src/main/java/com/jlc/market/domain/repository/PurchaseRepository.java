@@ -8,6 +8,8 @@ import com.jlc.market.domain.Purchase;
 public interface PurchaseRepository {
     List<Purchase> getAll();
 
+    Purchase getById(Integer idPurchase);
+
     Optional<List<Purchase>> getByClient(String clientId);
 
     Purchase save(Purchase purchase);

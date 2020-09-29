@@ -1,5 +1,6 @@
 package com.jlc.market.web.controller;
 
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,11 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-
 import java.util.List;
 
 import com.jlc.market.domain.Product;
@@ -23,6 +19,7 @@ import com.jlc.market.domain.service.ProductService;
 
 @RestController
 @RequestMapping("/products")
+@Api(tags = "Products")
 public class ProductController {
     private ProductService productService;
 

@@ -1,21 +1,26 @@
 package com.jlc.market.domain.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.jlc.market.domain.Purchase;
+import com.jlc.market.domain.repository.PurchaseRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.jlc.market.domain.Purchase;
-import com.jlc.market.domain.repository.PurchaseRepository;
-
 @Service
 public class PurchaseService {
-    @Autowired
     private PurchaseRepository purchaseRepository;
+
+    public PurchaseService(PurchaseRepository purchaseRepository) {
+        this.purchaseRepository = purchaseRepository;
+    }
 
     public List<Purchase> getAll() {
         return purchaseRepository.getAll();
+    }
+
+    public Purchase getById(Integer idPurchase) {
+        return purchaseRepository.getById(idPurchase);
     }
 
     public Optional<List<Purchase>> getByClient(String clientId) {
