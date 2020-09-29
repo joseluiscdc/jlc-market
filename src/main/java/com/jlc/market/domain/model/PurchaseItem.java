@@ -1,4 +1,4 @@
-package com.jlc.market.domain;
+package com.jlc.market.domain.model;
 
 public class PurchaseItem {
     private int productId;

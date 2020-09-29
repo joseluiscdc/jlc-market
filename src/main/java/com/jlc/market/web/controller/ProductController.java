@@ -1,7 +1,6 @@
 package com.jlc.market.web.controller;
 
 import io.swagger.annotations.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import com.jlc.market.domain.Product;
+import com.jlc.market.domain.model.Product;
 import com.jlc.market.domain.service.ProductService;
 
 @RestController

@@ -1,6 +1,6 @@
 package com.jlc.market.persistence.mapper;
 
-import com.jlc.market.domain.PurchaseItem;
+import com.jlc.market.domain.model.PurchaseItem;
 import com.jlc.market.persistence.entity.ComprasProducto;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;

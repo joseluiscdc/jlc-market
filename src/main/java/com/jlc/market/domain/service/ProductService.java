@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-import com.jlc.market.domain.Product;
+import com.jlc.market.domain.model.Product;
 import com.jlc.market.domain.repository.ProductRepository;
 
 @Service

@@ -3,13 +3,12 @@ package com.jlc.market.persistence;
 import java.util.List;
 import java.util.Optional;
 
-import com.jlc.market.domain.Product;
+import com.jlc.market.domain.model.Product;
 import com.jlc.market.domain.repository.ProductRepository;
 import com.jlc.market.persistence.crud.ProductoCrudRepository;
 import com.jlc.market.persistence.entity.Producto;
 import com.jlc.market.persistence.mapper.ProductMapper;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository

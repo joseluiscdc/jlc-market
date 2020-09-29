@@ -1,4 +1,4 @@
-package com.jlc.market.domain;
+package com.jlc.market.domain.model;
 
 public class Category {
     private int categoryId;

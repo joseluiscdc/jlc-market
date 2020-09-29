@@ -1,6 +1,6 @@
 package com.jlc.market.domain.service;
 
-import com.jlc.market.domain.Purchase;
+import com.jlc.market.domain.model.Purchase;
 import com.jlc.market.domain.repository.PurchaseRepository;
 import org.springframework.stereotype.Service;
 

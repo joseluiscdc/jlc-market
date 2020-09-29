@@ -3,7 +3,7 @@ package com.jlc.market.domain.repository;
 import java.util.List;
 import java.util.Optional;
 
-import com.jlc.market.domain.Product;
+import com.jlc.market.domain.model.Product;
 
 public interface ProductRepository {
     List<Product> getAll();

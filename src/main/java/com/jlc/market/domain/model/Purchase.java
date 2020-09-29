@@ -1,4 +1,4 @@
-package com.jlc.market.domain;
+package com.jlc.market.domain.model;
 
 import java.time.LocalDateTime;
 import java.util.List;

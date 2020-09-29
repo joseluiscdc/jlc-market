@@ -1,12 +1,11 @@
 package com.jlc.market.persistence;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.jlc.market.domain.Purchase;
+import com.jlc.market.domain.model.Purchase;
 import com.jlc.market.domain.repository.PurchaseRepository;
 import com.jlc.market.persistence.crud.CompraCrudRepository;
 import com.jlc.market.persistence.entity.Compra;
