@@ -1,14 +1,13 @@
 package com.jlc.market.persistence.mapper;
 
+import com.jlc.market.domain.Purchase;
+import com.jlc.market.persistence.entity.Compra;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
 import java.util.List;
-
-import com.jlc.market.domain.Purchase;
-import com.jlc.market.persistence.entity.Compra;
 
 @Mapper(componentModel = "spring", uses = { PurchaseItemMapper.class })
 public interface PurchaseMapper {
