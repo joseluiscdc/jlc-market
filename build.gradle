@@ -4,8 +4,8 @@ plugins {
 	id 'java'
 }
 
-group = 'com.platzi'
-version = '0.0.1-SNAPSHOT'
+group = 'com.jlc'
+version = '1.0'
 sourceCompatibility = '11'
 
 repositories {
