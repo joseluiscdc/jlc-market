@@ -5,6 +5,7 @@ import com.jlc.market.domain.dto.AuthenticationResponse;
 import com.jlc.market.domain.service.MarketUserDetailsService;
 import com.jlc.market.web.security.JwtUtil;
 
+import io.jsonwebtoken.ExpiredJwtException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -37,8 +38,9 @@ public class AuthController {
     @PostMapping("/authenticate")
     @ApiOperation(value = "Authenticate with API", notes = "Resource to get token authenticated")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Token created"),
-            @ApiResponse(code = 403, message = "Request not valid or expired token")
+            @ApiResponse(code = 201, message = "Authenticated - Token created"),
+            @ApiResponse(code = 401, message = "Expired token"),
+            @ApiResponse(code = 403, message = "Request not valid"),
     })
     public ResponseEntity<AuthenticationResponse> createToken(@RequestBody AuthenticationRequest request) {
         try {
@@ -49,9 +51,11 @@ public class AuthController {
 
             String jwt = jwtUtil.generateToken(userDetails);
 
-            return new ResponseEntity<>(new AuthenticationResponse(jwt), HttpStatus.OK);
+            return new ResponseEntity<>(new AuthenticationResponse(jwt, "Authenticated"), HttpStatus.CREATED);
         } catch (BadCredentialsException e) {
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(new AuthenticationResponse(null, "Bad Credentials"), HttpStatus.FORBIDDEN);
+        } catch (ExpiredJwtException e) {
+            return new ResponseEntity<>(new AuthenticationResponse(null, "Expired token"), HttpStatus.UNAUTHORIZED);
         }
     }
 }

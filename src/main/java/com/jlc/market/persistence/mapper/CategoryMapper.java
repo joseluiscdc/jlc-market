@@ -1,11 +1,15 @@
 package com.jlc.market.persistence.mapper;
 
 import com.jlc.market.domain.model.Category;
+import com.jlc.market.domain.model.Product;
 import com.jlc.market.persistence.entity.Categoria;
+import com.jlc.market.persistence.entity.Producto;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
+
+import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface CategoryMapper {
@@ -15,6 +19,8 @@ public interface CategoryMapper {
             @Mapping(source = "estado", target = "active"),
     })
     Category toCategory(Categoria categoria);
+
+    List<Category> toCategories(List<Categoria> categorias);
 
     @InheritInverseConfiguration
     @Mapping(target = "productos", ignore = true)
