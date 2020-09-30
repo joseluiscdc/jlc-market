@@ -2,13 +2,10 @@ package com.jlc.market.domain.dto;
 
 public class AuthenticationResponse {
     private String token;
-    private String message;
 
     public AuthenticationResponse(String token) {
         this.token = token;
     }
-
-
 
     public String getToken() {
         return token;
@@ -16,13 +13,5 @@ public class AuthenticationResponse {
 
     public void setToken(String token) {
         this.token = token;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 }

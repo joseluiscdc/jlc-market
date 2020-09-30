@@ -37,8 +37,8 @@ public class AuthController {
     @PostMapping("/authenticate")
     @ApiOperation(value = "Authenticate with API", notes = "Resource to get token authenticated")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Token created ok!"),
-            @ApiResponse(code = 400, message = "Request not valid!")
+            @ApiResponse(code = 200, message = "Token created"),
+            @ApiResponse(code = 403, message = "Request not valid or expired token")
     })
     public ResponseEntity<AuthenticationResponse> createToken(@RequestBody AuthenticationRequest request) {
         try {
@@ -51,7 +51,7 @@ public class AuthController {
 
             return new ResponseEntity<>(new AuthenticationResponse(jwt), HttpStatus.OK);
         } catch (BadCredentialsException e) {
-            return new ResponseEntity<>(new AuthenticationResponse("Expired token!"), HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
     }
 }
