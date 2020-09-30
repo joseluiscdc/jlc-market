@@ -23,9 +23,9 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         Contact contact = new Contact("José Luis","https://www.linkedin.com/in/joseluiscdc","");
         return new ApiInfo(
-                "API jlc-Market Documentation.",
+                "API jlc-market documentation.",
                 "Purchase of supermarket products.",
-                "jlc-market v1.0",
+                "v1.0",
                 null,
                 contact,
                 null,
