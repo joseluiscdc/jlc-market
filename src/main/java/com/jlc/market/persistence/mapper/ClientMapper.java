@@ -19,6 +19,7 @@ public interface ClientMapper {
             @Mapping(source = "apellidos", target = "lastName"),
             @Mapping(source = "celular", target = "phone"),
             @Mapping(source = "direccion", target = "address"),
+            @Mapping(source = "correoElectronico", target = "email"),
     })
     Client toClient(Cliente cliente);
 
