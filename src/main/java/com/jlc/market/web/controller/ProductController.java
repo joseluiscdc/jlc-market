@@ -40,7 +40,8 @@ public class ProductController {
             @ApiResponse(code = 404, message = "Product not found"),
     })
     public ResponseEntity<Product> getProduct(
-            @ApiParam(value = "The id of the product", required = true, example = "7") @PathVariable("id") int productId) {
+            @ApiParam(value = "The id of the product", required = true, example = "7")
+            @PathVariable("id") int productId) {
         return productService.getProduct(productId).map(product -> new ResponseEntity<>(product, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
@@ -51,7 +52,9 @@ public class ProductController {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 404, message = "Products not found"),
     })
-    public ResponseEntity<List<Product>> getByCategory(@PathVariable("categoryId") int categoryId) {
+    public ResponseEntity<List<Product>> getByCategory(
+            @ApiParam(value = "The id of the category", required = true, example = "1")
+            @PathVariable("categoryId") int categoryId) {
         return productService.getByCategory(categoryId).map(products -> new ResponseEntity<>(products, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
@@ -61,7 +64,9 @@ public class ProductController {
     @ApiResponses({
             @ApiResponse(code = 201, message = "Product created"),
     })
-    public ResponseEntity<Product> save(@RequestBody Product product) {
+    public ResponseEntity<Product> save(
+            @ApiParam(value = "The product json object. Check product model.", required = true)
+            @RequestBody Product product) {
         return new ResponseEntity<>(productService.save(product), HttpStatus.CREATED);
     }
 
@@ -71,7 +76,9 @@ public class ProductController {
             @ApiResponse(code = 200, message = "Product deleted"),
             @ApiResponse(code = 404, message = "Product not found"),
     })
-    public ResponseEntity<String> delete(@PathVariable("id") int productId) {
+    public ResponseEntity<String> delete(
+            @ApiParam(value = "The id of the product", required = true, example = "7")
+            @PathVariable("id") int productId) {
         if (productService.delete(productId)) {
             return new ResponseEntity<String>(HttpStatus.OK);
         } else {

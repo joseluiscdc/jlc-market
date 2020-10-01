@@ -6,10 +6,7 @@ import com.jlc.market.domain.service.MarketUserDetailsService;
 import com.jlc.market.web.security.JwtUtil;
 
 import io.jsonwebtoken.ExpiredJwtException;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -42,7 +39,9 @@ public class AuthController {
             @ApiResponse(code = 401, message = "Expired token"),
             @ApiResponse(code = 403, message = "Request not valid"),
     })
-    public ResponseEntity<AuthenticationResponse> createToken(@RequestBody AuthenticationRequest request) {
+    public ResponseEntity<AuthenticationResponse> createToken(
+            @ApiParam(value = "The authentication json object. Check authentication request model.", required = true)
+            @RequestBody AuthenticationRequest request) {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));

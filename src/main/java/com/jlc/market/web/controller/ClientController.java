@@ -2,10 +2,7 @@ package com.jlc.market.web.controller;
 
 import com.jlc.market.domain.model.Client;
 import com.jlc.market.domain.service.ClientService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +29,9 @@ public class ClientController {
     @GetMapping("/{idClient}")
     @ApiOperation(value = "Get client by id.", notes = "Resource to get client by id.")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Client> getById(@PathVariable("idClient") String idClient) {
+    public ResponseEntity<Client> getById(
+            @ApiParam(value = "The id of the client", required = true, example = "dni/rut")
+            @PathVariable("idClient") String idClient) {
         return new ResponseEntity<>(clientService.getById(idClient), HttpStatus.OK);
     }
 
@@ -41,7 +40,9 @@ public class ClientController {
     @ApiResponses({
             @ApiResponse(code = 201, message = "Client created"),
     })
-    public ResponseEntity<Client> save(@RequestBody Client client) {
+    public ResponseEntity<Client> save(
+            @ApiParam(value = "The client json object. Check client model.", required = true)
+            @RequestBody Client client) {
         return new ResponseEntity<>(clientService.save(client), HttpStatus.CREATED);
     }
 }

@@ -1,9 +1,6 @@
 package com.jlc.market.web.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +30,9 @@ public class PurchaseController {
     @GetMapping("/{idPurchase}")
     @ApiOperation(value = "Get purchase by id.", notes = "Resource to get purchase by id.")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Purchase> getById(@PathVariable("idPurchase") Integer idPurchase) {
+    public ResponseEntity<Purchase> getById(
+            @ApiParam(value = "The id of the purchase", required = true, example = "1")
+            @PathVariable("idPurchase") Integer idPurchase) {
         return new ResponseEntity<>(purchaseService.getById(idPurchase), HttpStatus.OK);
     }
 
@@ -43,7 +42,9 @@ public class PurchaseController {
             @ApiResponse(code = 200, message = "Puchase by client"),
             @ApiResponse(code = 404, message = "Purchase by client not found"),
     })
-    public ResponseEntity<List<Purchase>> getByClient(@PathVariable("idClient") String clientId) {
+    public ResponseEntity<List<Purchase>> getByClient(
+            @ApiParam(value = "The id of the client", required = true, example = "dni/rut")
+            @PathVariable("idClient") String clientId) {
         return purchaseService.getByClient(clientId).map(purchases -> new ResponseEntity<>(purchases, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
@@ -53,7 +54,9 @@ public class PurchaseController {
     @ApiResponses({
             @ApiResponse(code = 201, message = "Purchase created"),
     })
-    public ResponseEntity<Purchase> save(@RequestBody Purchase purchase) {
+    public ResponseEntity<Purchase> save(
+            @ApiParam(value = "The purchase json object. Check purchase model.", required = true)
+            @RequestBody Purchase purchase) {
         return new ResponseEntity<>(purchaseService.save(purchase), HttpStatus.CREATED);
     }
 }
