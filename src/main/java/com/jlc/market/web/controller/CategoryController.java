@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/categories")
-@Api(tags = "Categories")
+@Api(tags = "Categories", description = "Operations about category resource")
 public class CategoryController {
     private CategoryService categoryService;
 

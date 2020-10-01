@@ -1,8 +1,11 @@
 package com.jlc.market.domain.model;
 
+import io.swagger.annotations.ApiModel;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
+@ApiModel(value="Purchase", description="Sample model for the documentation")
 public class Purchase {
     private int purchaseId;
     private String clientId;

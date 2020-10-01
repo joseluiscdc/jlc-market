@@ -25,7 +25,7 @@ public class SwaggerConfig {
         return new ApiInfo(
                 "API jlc-market documentation.",
                 "Purchase of supermarket products.",
-                "v1.0",
+                "v1.1",
                 null,
                 contact,
                 null,

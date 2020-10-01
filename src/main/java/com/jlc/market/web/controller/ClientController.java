@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/clients")
-@Api(tags = "Clients")
+@Api(tags = "Clients", description = "Operations about client resource")
 public class ClientController {
     private ClientService clientService;
 

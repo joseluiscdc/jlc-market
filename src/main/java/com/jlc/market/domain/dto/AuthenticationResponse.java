@@ -1,5 +1,8 @@
 package com.jlc.market.domain.dto;
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel(value="AuthenticationResponse", description="Sample model for the documentation")
 public class AuthenticationResponse {
     private String token;
     private String message;

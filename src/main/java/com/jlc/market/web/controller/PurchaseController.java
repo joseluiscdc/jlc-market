@@ -15,7 +15,7 @@ import com.jlc.market.domain.service.PurchaseService;
 
 @RestController
 @RequestMapping("/purchases")
-@Api(tags = "Purchases")
+@Api(tags = "Purchases", description = "Operations about purchase resource")
 public class PurchaseController {
     private PurchaseService purchaseService;
 

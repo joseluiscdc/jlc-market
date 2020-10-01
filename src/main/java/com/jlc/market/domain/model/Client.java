@@ -1,5 +1,8 @@
 package com.jlc.market.domain.model;
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel(value="Client", description="Sample model for the documentation")
 public class Client {
     private String idClient;
     private String firstName;

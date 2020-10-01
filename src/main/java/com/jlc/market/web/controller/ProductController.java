@@ -18,7 +18,7 @@ import com.jlc.market.domain.service.ProductService;
 
 @RestController
 @RequestMapping("/products")
-@Api(tags = "Products")
+@Api(tags = "Products", description = "Operations about product resource")
 public class ProductController {
     private ProductService productService;
 

@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-@Api(tags = "Authenticate")
+@Api(tags = "Authenticate", description = "Operations about authenticate resource")
 public class AuthController {
     private AuthenticationManager authenticationManager;
     private MarketUserDetailsService marketUserDetailsService;

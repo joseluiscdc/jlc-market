@@ -1,5 +1,8 @@
 package com.jlc.market.domain.model;
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel(value="PurchaseItem", description="Sample model for the documentation")
 public class PurchaseItem {
     private int productId;
     private int quantity;
