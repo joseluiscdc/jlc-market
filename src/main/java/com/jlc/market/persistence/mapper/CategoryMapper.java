@@ -11,11 +11,8 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface CategoryMapper {
-    @Mappings({
-            @Mapping(source = "idCategoria", target = "categoryId"),
-            @Mapping(source = "descripcion", target = "category"),
-            @Mapping(source = "estado", target = "active"),
-    })
+    @Mappings({ @Mapping(source = "idCategoria", target = "categoryId"),
+            @Mapping(source = "descripcion", target = "category"), @Mapping(source = "estado", target = "active"), })
     Category toCategory(Categoria categoria);
 
     List<Category> toCategories(List<Categoria> categorias);
