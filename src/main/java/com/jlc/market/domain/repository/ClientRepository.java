@@ -1,9 +1,8 @@
 package com.jlc.market.domain.repository;
 
-import com.jlc.market.domain.model.Category;
-import com.jlc.market.domain.model.Client;
-
 import java.util.List;
+
+import com.jlc.market.domain.model.Client;
 
 public interface ClientRepository {
     List<Client> getAll();

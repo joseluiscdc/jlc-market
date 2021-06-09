@@ -1,15 +1,24 @@
 package com.jlc.market.web.controller;
 
+import java.util.List;
+
 import com.jlc.market.domain.model.Category;
-import com.jlc.market.domain.model.Purchase;
 import com.jlc.market.domain.service.CategoryService;
-import com.jlc.market.domain.service.PurchaseService;
-import io.swagger.annotations.*;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("/categories")

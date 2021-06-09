@@ -1,15 +1,14 @@
 package com.jlc.market.persistence.mapper;
 
-import com.jlc.market.domain.model.Category;
+import java.util.List;
+
 import com.jlc.market.domain.model.Client;
-import com.jlc.market.persistence.entity.Categoria;
 import com.jlc.market.persistence.entity.Cliente;
+
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
-
-import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ClientMapper {

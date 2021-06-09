@@ -3,7 +3,6 @@ package com.jlc.market.web.security;
 import com.jlc.market.domain.service.MarketUserDetailsService;
 import com.jlc.market.web.security.filter.JwtFilterRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
