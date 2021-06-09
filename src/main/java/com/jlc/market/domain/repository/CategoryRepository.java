@@ -1,10 +1,8 @@
 package com.jlc.market.domain.repository;
 
-import com.jlc.market.domain.model.Category;
-import com.jlc.market.domain.model.Purchase;
-
 import java.util.List;
-import java.util.Optional;
+
+import com.jlc.market.domain.model.Category;
 
 public interface CategoryRepository {
     List<Category> getAll();
